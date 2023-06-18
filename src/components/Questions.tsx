@@ -1,4 +1,5 @@
 import question from "@/types/question";
+import QuestionHeader from "./QuestionHeader";
 
 interface Props {
   questions: question[];
@@ -14,17 +15,10 @@ export default function Questions({
   return (
     <>
       <div className="questions-ctr">
-        <div className="progress">
-          <div
-            className="bar"
-            style={{
-              width: `${(questionsAnswered / questions.length) * 100}%`,
-            }}
-          ></div>
-          <div className="status">
-            {questionsAnswered} de 3 preguntas respondidas
-          </div>
-        </div>
+        <QuestionHeader
+          questions={questions}
+          questionsAnswered={questionsAnswered}
+        />
         {questions.map((question, i) => (
           <div className="single-question" key={i}>
             {questionsAnswered === i && (
