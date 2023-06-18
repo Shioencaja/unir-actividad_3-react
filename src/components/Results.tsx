@@ -1,4 +1,6 @@
 import result from "@/types/result";
+import ResultDesc from "./ResultDesc";
+import ResultTitle from "./ResultTitle";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -21,8 +23,10 @@ export default function Results({ results, correctAnswers }: Props) {
   return (
     <>
       <div className="result">
-        <div className="title">{results[resultIndex].title}</div>
-        <div className="desc">{results[resultIndex].desc}</div>
+        <ResultTitle title={results[resultIndex].title} />
+        <ResultDesc result={results[resultIndex].desc} />
+
+     
       </div>
     </>
   );
